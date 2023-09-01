@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en-US" class="io-white-mode">
+<head> 
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit"/>
+<meta name="force-rendering" content="webkit"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Login | ChatGPT.AI</title>
+<meta name="theme-color" content="#f9f9f9" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="shortcut icon" href="https://chatgpt.ai/wp-content/uploads/2023/03/Wordpress-Transparent-e1687267460983.png">
+<link rel="apple-touch-icon" href="https://chatgpt.ai/wp-content/uploads/2023/03/Wordpress-Transparent-e1687267460983.png">
+<!--[if IE]><script src="https://chatgpt.ai/wp-content/themes/onenav/js/html5.min.js"></script><![endif]-->
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+            <style>
+                .wpaicg_toc h2{
+                    margin-bottom: 20px;
+                }
+                .wpaicg_toc{
+                    list-style: none;
+                    margin: 0 0 30px 0!important;
+                    padding: 0!important;
+                }
+                .wpaicg_toc li{}
+                .wpaicg_toc li ul{
+                    list-style: decimal;
+                }
+                .wpaicg_toc a{}
+                .wpaicg_chat_widget{
+                    position: fixed;
+                }
+                .wpaicg_widget_left{
+                    bottom: 15px;
+                    left: 15px;
+                }
+                .wpaicg_widget_right{
+                    bottom: 15px;
+                    right: 15px;
+                }
+                .wpaicg_widget_right .wpaicg_chat_widget_content{
+                    right: 0;
+                }
+                .wpaicg_widget_left .wpaicg_chat_widget_content{
+                    left: 0;
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox{
+                    height: 100%;
+                    background-color: #222222;
+                    border-radius: 5px;
+                }
+                .wpaicg_widget_open .wpaicg_chat_widget_content{
+                    height: 400px;
+                }
+                .wpaicg_chat_widget_content{
+                    position: absolute;
+                    bottom: calc(100% + 15px);
+                    width: 350px;
+                    overflow: hidden;
+                }
+                .wpaicg_widget_open .wpaicg_chat_widget_content{
+                    overflow: unset;
+                }
+                .wpaicg_widget_open .wpaicg_chat_widget_content .wpaicg-chatbox{
+                    top: 0;
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox{
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 350px;
+                    height: 400px;
+                    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox-content{
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox-content ul{
+                    box-sizing: border-box;
+                    background: #222222;
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox-content ul li{
+                    color: #90EE90;
+                    font-size: 13px;
+                }
+                .wpaicg_chat_widget_content .wpaicg-bot-thinking{
+                    color: #90EE90;
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox-type{
+                                    padding: 5px 5px 0 5px;
+                                    border-top: 0;
+                    background: rgb(0 0 0 / 19%);
+                }
+                .wpaicg_chat_widget_content .wpaicg-chat-message{
+                    color: #90EE90;
+                }
+                .wpaicg_chat_widget_content textarea.wpaicg-chatbox-typing{
+                    background-color: #fff;
+                    border-color: #ccc;
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox-send{
+                    color: #fff;
+                }
+                .wpaicg-chatbox-footer{
+                    height: 18px;
+                    font-size: 11px;
+                    padding: 0 5px;
+                    color: #fff;
+                    background: rgb(0 0 0 / 19%);
+                    margin-top:2px;
+                    margin-bottom: 2px;
+                }
+                .wpaicg_chat_widget_content textarea.wpaicg-chatbox-typing:focus{
+                    outline: none;
+                }
+                .wpaicg_chat_widget .wpaicg_toggle{
+                    cursor: pointer;
+                }
+                .wpaicg_chat_widget .wpaicg_toggle img{
+                    width: 75px;
+                    height: 75px;
+                }
+                .wpaicg-chat-shortcode-type,.wpaicg-chatbox-type{
+                    position: relative;
+                }
+                .wpaicg-mic-icon{
+                    cursor: pointer;
+                }
+                .wpaicg-mic-icon svg{
+                    width: 16px;
+                    height: 16px;
+                    fill: currentColor;
+                }
+                .wpaicg-pdf-icon svg{
+                    width: 22px;
+                    height: 22px;
+                    fill: currentColor;
+                }
+                .wpaicg_chat_additions span{
+                    cursor: pointer;
+                    margin-right: 2px;
+                }
+                .wpaicg_chat_additions span:last-of-type{
+                    margin-right: 0;
+                }
+                .wpaicg-pdf-loading{
+                    width: 18px;
+                    height: 18px;
+                    border: 2px solid #FFF;
+                    border-bottom-color: transparent;
+                    border-radius: 50%;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    animation: wpaicg_rotation 1s linear infinite;
+                }
+                @keyframes wpaicg_rotation {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+                .wpaicg-chat-message code{
+                    padding: 3px 5px 2px;
+                    background: rgb(0 0 0 / 20%);
+                    font-size: 13px;
+                    font-family: Consolas,Monaco,monospace;
+                    direction: ltr;
+                    unicode-bidi: embed;
+                    display: block;
+                    margin: 5px 0px;
+                    border-radius: 4px;
+                    white-space: pre-wrap;
+                }
+                textarea.wpaicg-chat-shortcode-typing,textarea.wpaicg-chatbox-typing{
+                    height: 30px;
+                }
+                .wpaicg_chat_widget_content .wpaicg-chatbox-content,.wpaicg-chat-shortcode-content{
+                    overflow: hidden;
+                }
+                .wpaicg_chatbox_line{
+                    overflow: hidden;
+                    text-align: center;
+                    display: block!important;
+                    font-size: 12px;
+                }
+                .wpaicg_chatbox_line:after,.wpaicg_chatbox_line:before{
+                    background-color: rgb(255 255 255 / 26%);
+                    content: "";
+                    display: inline-block;
+                    height: 1px;
+                    position: relative;
+                    vertical-align: middle;
+                    width: 50%;
+                }
+                .wpaicg_chatbox_line:before {
+                    right: 0.5em;
+                    margin-left: -50%;
+                }
+
+                .wpaicg_chatbox_line:after {
+                    left: 0.5em;
+                    margin-right: -50%;
+                }
+                .wpaicg-chat-shortcode-typing::-webkit-scrollbar,.wpaicg-chatbox-typing::-webkit-scrollbar{
+                    width: 5px
+                }
+                .wpaicg-chat-shortcode-typing::-webkit-scrollbar-track,.wpaicg-chatbox-typing::-webkit-scrollbar-track{
+                    -webkit-box-shadow:inset 0 0 6px rgba(0, 0, 0, 0.15);border-radius:5px;
+                }
+                .wpaicg-chat-shortcode-typing::-webkit-scrollbar-thumb,.wpaicg-chatbox-typing::-webkit-scrollbar-thumb{
+                    border-radius:5px;
+                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.75);
+                }
+            </style>
+            <script>
+                var wpaicg_ajax_url = 'https://chatgpt.ai/wp-admin/admin-ajax.php';
+                var wpaicgUserLoggedIn = false;
+            </script>
+            <link href="https://chatgpt.ai/wp-content/plugins/gpt3-ai-content-generator-premium/public/css/wpaicg-rtl.css" type="text/css" rel="stylesheet" />
+            <!-- Jetpack Site Verification Tags -->
+<meta name="google-site-verification" content="j6KsjLjHcPexWvKQmjcmeqd4ZS-GZa0ab_zCBKgaAmw" />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v20.13 (Yoast SEO v21.0) - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Meet ChatGPT.AI, your all-in-one intelligent assistant for work and life. From learning new skills to answering your questions and providing helpful recommendations, our AI-powered tool is always there to help you get more done and achieve your goals." />
+	<link rel="canonical" href="https://chatgpt.ai/login/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Login | ChatGPT.AI" />
+	<meta property="og:description" content="Meet ChatGPT.AI, your all-in-one intelligent assistant for work and life. From learning new skills to answering your questions and providing helpful recommendations, our AI-powered tool is always there to help you get more done and achieve your goals." />
+	<meta property="og:url" content="https://chatgpt.ai/login/" />
+	<meta property="og:site_name" content="ChatGPT.AI" />
+	<meta property="article:modified_time" content="2023-04-01T06:16:08+00:00" />
+	<meta property="og:image" content="https://i0.wp.com/chatgpt.ai/wp-content/uploads/2023/02/Wordpress-Transparent.png?fit=512%2C512&ssl=1" />
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@AI_ChatGPT" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://chatgpt.ai/login/","url":"https://chatgpt.ai/login/","name":"Login | ChatGPT.AI","isPartOf":{"@id":"https://chatgpt.ai/#website"},"datePublished":"2023-03-13T18:13:14+00:00","dateModified":"2023-04-01T06:16:08+00:00","description":"Meet ChatGPT.AI, your all-in-one intelligent assistant for work and life. From learning new skills to answering your questions and providing helpful recommendations, our AI-powered tool is always there to help you get more done and achieve your goals.","breadcrumb":{"@id":"https://chatgpt.ai/login/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://chatgpt.ai/login/"]}]},{"@type":"BreadcrumbList","@id":"https://chatgpt.ai/login/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chatgpt.ai/"},{"@type":"ListItem","position":2,"name":"Login"}]},{"@type":"WebSite","@id":"https://chatgpt.ai/#website","url":"https://chatgpt.ai/","name":"ChatGPT.AI","description":"Your Intelligent Assistant, Always There","publisher":{"@id":"https://chatgpt.ai/#organization"},"alternateName":"ChatGPT AI","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://chatgpt.ai/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://chatgpt.ai/#organization","name":"ChatGPT.AI","alternateName":"ChatGPT.AI","url":"https://chatgpt.ai/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://chatgpt.ai/#/schema/logo/image/","url":"https://chatgpt.ai/wp-content/uploads/2023/03/Wordpress-Transparent.png","contentUrl":"https://chatgpt.ai/wp-content/uploads/2023/03/Wordpress-Transparent.png","width":512,"height":512,"caption":"ChatGPT.AI"},"image":{"@id":"https://chatgpt.ai/#/schema/logo/image/"},"sameAs":["https://twitter.com/AI_ChatGPT"]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//cdn.staticfile.org' />
+<link rel='dns-prefetch' href='//i0.wp.com' />
+<link rel='dns-prefetch' href='//c0.wp.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel='stylesheet' id='all-css-6ecafc099e34a2e5f8d8f3bb248afbb7' href='https://chatgpt.ai/_static/??-eJytVNtOwzAM/SGyMCYmeEB8SuWkXgnLTXGyqn+Pm1G0e5ngJa3jc+xzErd9FDr4jD7LaEtnPMmucKgwdVIVY1upbNBbYY1KkAZJebC40EQP/TnVwhBKFl0y7W3gJ+YIejs9mx36NiQJJQcHORs9ZcTOtBhiQqIjOdiazIQakKwgXrGfGhqvbWmRO5F0DAa06EYFh0FkvZiExQ70sHDGz7I5dxgfcs6OMeaVADPtiw49JmDRgt04U5yMRVl2yvyx7mVohZy2yB/cnWTw6GFX+YZTG87OI1UImXKCeEn7OXx/izdsQnLoeFoqmoNmky7ouI4OvNwclVOKGH0K6JGCmycBEWaq3CpM6uDi6I83GwWElZqCpT+VGm2IamNf9d+KwfQqWtxAsfMne39l/uIwGbD3l/79ff+M3fEQNmCvtp3+ESPh+32Evru35fr16eVx9bxcfwFvh9Oo' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--albert-sans: 'Albert Sans';--wp--preset--font-family--alegreya: Alegreya;--wp--preset--font-family--arvo: Arvo;--wp--preset--font-family--bodoni-moda: 'Bodoni Moda';--wp--preset--font-family--cabin: Cabin;--wp--preset--font-family--chivo: Chivo;--wp--preset--font-family--commissioner: Commissioner;--wp--preset--font-family--cormorant: Cormorant;--wp--preset--font-family--courier-prime: 'Courier Prime';--wp--preset--font-family--crimson-pro: 'Crimson Pro';--wp--preset--font-family--dm-mono: 'DM Mono';--wp--preset--font-family--dm-sans: 'DM Sans';--wp--preset--font-family--domine: Domine;--wp--preset--font-family--eb-garamond: 'EB Garamond';--wp--preset--font-family--epilogue: Epilogue;--wp--preset--font-family--figtree: Figtree;--wp--preset--font-family--fira-sans: 'Fira Sans';--wp--preset--font-family--fraunces: Fraunces;--wp--preset--font-family--ibm-plex-mono: 'IBM Plex Mono';--wp--preset--font-family--ibm-plex-sans: 'IBM Plex Sans';--wp--preset--font-family--inter: Inter;--wp--preset--font-family--josefin-sans: 'Josefin Sans';--wp--preset--font-family--jost: Jost;--wp--preset--font-family--libre-baskerville: 'Libre Baskerville';--wp--preset--font-family--libre-franklin: 'Libre Franklin';--wp--preset--font-family--literata: Literata;--wp--preset--font-family--lora: Lora;--wp--preset--font-family--merriweather: Merriweather;--wp--preset--font-family--montserrat: Montserrat;--wp--preset--font-family--newsreader: Newsreader;--wp--preset--font-family--nunito: Nunito;--wp--preset--font-family--open-sans: 'Open Sans';--wp--preset--font-family--overpass: Overpass;--wp--preset--font-family--petrona: Petrona;--wp--preset--font-family--piazzolla: Piazzolla;--wp--preset--font-family--playfair-display: 'Playfair Display';--wp--preset--font-family--plus-jakarta-sans: 'Plus Jakarta Sans';--wp--preset--font-family--poppins: Poppins;--wp--preset--font-family--raleway: Raleway;--wp--preset--font-family--roboto-slab: 'Roboto Slab';--wp--preset--font-family--roboto: Roboto;--wp--preset--font-family--rubik: Rubik;--wp--preset--font-family--sora: Sora;--wp--preset--font-family--source-sans-pro: 'Source Sans Pro';--wp--preset--font-family--source-serif-pro: 'Source Serif Pro';--wp--preset--font-family--space-mono: 'Space Mono';--wp--preset--font-family--texturina: Texturina;--wp--preset--font-family--work-sans: 'Work Sans';--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+</style>
+<link rel='stylesheet' id='font-awesome-css' href='//cdn.staticfile.org/font-awesome/5.15.4/css/all.min.css' media='all' />
+<link rel='stylesheet' id='font-awesome4-css' href='//cdn.staticfile.org/font-awesome/5.15.4/css/v4-shims.min.css' media='all' />
+<style id='jetpack-global-styles-frontend-style-inline-css'>
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<script src='https://chatgpt.ai/wp-content/themes/onenav/js/jquery.min.js?ver=3.2206' id='jquery-js'></script>
+<script id="jquery-js-after" type="text/javascript">
+/* <![CDATA[ */ 
+        function loadFunc(func) {if (document.all){window.attachEvent("onload",func);}else{window.addEventListener("load",func,false);}}   
+        /* ]]> */
+</script>
+<script type='text/javascript'  src='https://chatgpt.ai/wp-content/plugins/gpt3-ai-content-generator-premium/public/js/wp-ai-content-generator-public.js?m=1687709365'></script>
+
+<!-- Google Analytics snippet added by Site Kit -->
+<script src='https://www.googletagmanager.com/gtag/js?id=UA-268460175-1' id='google_gtagjs-js' async></script>
+<script id="google_gtagjs-js-after" type="text/javascript">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag('set', 'linker', {"domains":["chatgpt.ai"]} );
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "UA-268460175-1", {"anonymize_ip":true});
+gtag("config", "G-EBNTF2FDZV");
+</script>
+
+<!-- End Google Analytics snippet added by Site Kit -->
+<script type='text/javascript'  src='https://chatgpt.ai/_static/??-eJyNy0sKgCAUheENlRKROYmWEioSStd784G0+7BBw2h2fjhfpd5gyDZkTkfZXUhcRbCgbeQ+cX8WGy+mCakQAxeYT139MBoxpxwVNf3GH+mfvRkEwHZeYRmEHCcpZilvOdg+uQ=='></script>
+<script type="text/javascript" data-cfasync="false">__ARMAJAXURL = "https://chatgpt.ai/wp-admin/admin-ajax.php";__ARMVIEWURL = "https://chatgpt.ai/wp-content/plugins/armember/core/views";__ARMIMAGEURL = "https://chatgpt.ai/wp-content/plugins/armember/images";__ARMISADMIN = [];__ARMSITEURL = "https://chatgpt.ai";loadActivityError = "There is an error while loading activities, please try again.";pinterestPermissionError = "The user has not grant permissions or closed the pop-up";pinterestError = "Oops, there was a problem for getting account information";clickToCopyError = "There is an error while copying, please try again";fbUserLoginError = "User has cancelled login or did not fully authorize.";closeAccountError = "There is an error while closing account, please try again.";invalidFileTypeError = "Sorry, this file type is not permitted for security reasons.";fileSizeError = "File is not allowed larger than {SIZE}.";fileUploadError = "There is an error in uploading file, Please try again.";coverRemoveConfirm = "Are you sure you want to remove cover photo?";profileRemoveConfirm = "Are you sure you want to remove profile photo?";errorPerformingAction = "There is an error while performing this action, please try again.";userSubscriptionCancel = "User's subscription has been canceled";ARM_Loding = "Loading..";Post_Publish ="After certain time of post is published";Post_Modify ="After certain time of post is modified";wentwrong ="Sorry, Something went wrong. Please try again.";bulkActionError = "Please select valid action.";bulkRecordsError ="Please select one or more records.";clearLoginAttempts ="Login attempts cleared successfully.";clearLoginHistory ="Login History cleared successfully.";nopasswordforimport ="Password can not be left blank.";delBadgeSuccess ="Badge has been deleted successfully.";delBadgeError ="There is an error while deleting Badge, please try again.";delAchievementBadgeSuccess ="Achievement badges has been deleted successfully.";delAchievementBadgeError ="There is an error while deleting achievement badges, please try again.";addUserAchievementSuccess ="User Achievement Added Successfully.";delUserBadgeSuccess ="User badge has been deleted successfully.";delUserBadgeError ="There is an error while deleting user badge, please try again.";delPlansSuccess ="Plan(s) has been deleted successfully.";delPlansError ="There is an error while deleting Plan(s), please try again.";delPlanError ="There is an error while deleting Plan, please try again.";stripePlanIDWarning ="If you leave this field blank, stripe will not be available in setup for recurring plan(s).";delSetupsSuccess ="Setup(s) has been deleted successfully.";delSetupsError ="There is an error while deleting Setup(s), please try again.";delSetupSuccess ="Setup has been deleted successfully.";delSetupError ="There is an error while deleting Setup, please try again.";delFormSetSuccess ="Form Set Deleted Successfully.";delFormSetError ="There is an error while deleting form set, please try again.";delFormSuccess ="Form deleted successfully.";delFormError ="There is an error while deleting form, please try again.";delRuleSuccess ="Rule has been deleted successfully.";delRuleError ="There is an error while deleting Rule, please try again.";delRulesSuccess ="Rule(s) has been deleted successfully.";delRulesError ="There is an error while deleting Rule(s), please try again.";prevTransactionError ="There is an error while generating preview of transaction detail, Please try again.";invoiceTransactionError ="There is an error while generating invoice of transaction detail, Please try again.";prevMemberDetailError ="There is an error while generating preview of members detail, Please try again.";prevMemberActivityError ="There is an error while displaying members activities detail, Please try again.";prevCustomCssError ="There is an error while displaying ARMember CSS Class Information, Please Try Again.";prevImportMemberDetailError ="Please upload appropriate file to import users.";delTransactionSuccess ="Transaction has been deleted successfully.";delTransactionsSuccess ="Transaction(s) has been deleted successfully.";delAutoMessageSuccess ="Message has been deleted successfully.";delAutoMessageError ="There is an error while deleting Message, please try again.";delAutoMessagesSuccess ="Message(s) has been deleted successfully.";delAutoMessagesError ="There is an error while deleting Message(s), please try again.";delCouponSuccess ="Coupon has been deleted successfully.";delCouponError ="There is an error while deleting Coupon, please try again.";delCouponsSuccess ="Coupon(s) has been deleted successfully.";delCouponsError ="There is an error while deleting Coupon(s), please try again.";saveSettingsSuccess ="Settings has been saved successfully.";saveSettingsError ="There is an error while updating settings, please try again.";saveDefaultRuleSuccess ="Default Rules Saved Successfully.";saveDefaultRuleError ="There is an error while updating rules, please try again.";saveOptInsSuccess ="Opt-ins Settings Saved Successfully.";saveOptInsError ="There is an error while updating opt-ins settings, please try again.";delOptInsConfirm ="Are you sure to delete configuration?";delMemberActivityError ="There is an error while deleting member activities, please try again.";noTemplateError ="Template not found.";saveTemplateSuccess ="Template options has been saved successfully.";saveTemplateError ="There is an error while updating template options, please try again.";prevTemplateError ="There is an error while generating preview of template, Please try again.";addTemplateSuccess ="Template has been added successfully.";addTemplateError ="There is an error while adding template, please try again.";delTemplateSuccess ="Template has been deleted successfully.";delTemplateError ="There is an error while deleting template, please try again.";saveEmailTemplateSuccess ="Email Template Updated Successfully.";saveAutoMessageSuccess ="Message Updated Successfully.";saveBadgeSuccess ="Badges Updated Successfully.";addAchievementSuccess ="Achievements Added Successfully.";saveAchievementSuccess ="Achievements Updated Successfully.";addDripRuleSuccess ="Rule Added Successfully.";saveDripRuleSuccess ="Rule updated Successfully.";pastDateError ="Cannot Set Past Dates.";pastStartDateError ="Start date can not be earlier than current date.";pastExpireDateError ="Expire date can not be earlier than current date.";couponExpireDateError ="Expire date can not be earlier than start date.";uniqueformsetname ="This Set Name is already exist.";uniquesignupformname ="This Form Name is already exist.";installAddonError ="There is an error while installing addon, Please try again.";installAddonSuccess ="Addon installed successfully.";activeAddonError ="There is an error while activating addon, Please try again.";activeAddonSuccess ="Addon activated successfully.";deactiveAddonSuccess ="Addon deactivated successfully.";confirmCancelSubscription ="Are you sure you want to cancel subscription?";errorPerformingAction ="There is an error while performing this action, please try again.";arm_nothing_found ="Oops, nothing found.";delPaidPostSuccess ="Paid Post has been deleted successfully.";delPaidPostError ="There is an error while deleting Paid Post, please try again.";armEditCurrency ="Edit";armCustomCurrency ="Custom Currency";armFileViewFileTxt ="View File";armEnabledPayPerPost ="1";REMOVEPAIDPOSTMESSAGE = "You cannot remove all paid post.";ARMCYCLELABEL = "Label";LABELERROR = "Label should not be blank"</script><meta name="generator" content="Site Kit by Google 1.108.0" />	<style>img#wpstats{display:none}</style>
+		<style>.customize-width{max-width:1900px}.sidebar-nav{width:220px}@media (min-width: 768px){.main-content{margin-left:220px;}.main-content .page-header{left:220px;}}</style>			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		<link rel="icon" href="https://i0.wp.com/chatgpt.ai/wp-content/uploads/2023/02/Wordpress-Transparent.png?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/chatgpt.ai/wp-content/uploads/2023/02/Wordpress-Transparent.png?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/chatgpt.ai/wp-content/uploads/2023/02/Wordpress-Transparent.png?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/chatgpt.ai/wp-content/uploads/2023/02/Wordpress-Transparent.png?fit=270%2C270&#038;ssl=1" />
+<style type="text/css" id="wp-custom-css">.wpaicg-prompt-form textarea {
+    width: 100%;
+    height: 100px;
+}</style><!-- Your Google Analytics Plugin is missing the tracking ID -->
+<!-- 自定义代码 -->
+<!-- end 自定义代码 -->
+</head> 
+<body class="page-template-default page page-id-1267 sidebar_no">
+        <div id="sidebar" class="sticky sidebar-nav fade">
+            <div class="modal-dialog h-100  sidebar-nav-inner">
+                <div class="sidebar-logo border-bottom border-color">
+                    <!-- logo -->
+                    <div class="logo overflow-hidden">
+                                                <a href="https://chatgpt.ai" class="logo-expanded">
+                            <img src="https://chatgpt.ai/wp-content/uploads/2023/08/ChatGate__2023-08-2921_58_10-e1693318035516.png" height="40" class="d-none" alt="ChatGPT.AI">
+                            <img src="https://chatgpt.ai/wp-content/uploads/2023/08/ChatGate_white__2023-08-2921_57_40-e1693317905172.png" height="40"  alt="ChatGPT.AI">
+                        </a>
+                        <a href="https://chatgpt.ai" class="logo-collapsed">
+                            <img src="https://chatgpt.ai/wp-content/uploads/2023/03/Wordpress-Transparent-e1687267460983.png" height="40" class="d-none" alt="ChatGPT.AI">
+                            <img src="https://chatgpt.ai/wp-content/uploads/2023/03/Wordpress-Transparent-e1687267460983.png" height="40"  alt="ChatGPT.AI">
+                        </a>
+                    </div>
+                    <!-- logo end -->
+                </div>
+                <div class="sidebar-menu flex-fill">
+                    <div class="sidebar-scroll" >
+                        <div class="sidebar-menu-inner">
+                            <ul> 
+                                                                                                            <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/gpt-4/" target="">
+                                                    <i class="fab fa-rocketchat icon-fw icon-lg"></i>
+                                                    <span>ChatGPT-4</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/voice/" target="">
+                                                    <i class="fas fa-microphone-alt icon-fw icon-lg"></i>
+                                                    <span>ChatVoice</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/pdf/" target="">
+                                                    <i class="fas fa-file-pdf icon-fw icon-lg"></i>
+                                                    <span>ChatPDF</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/image/" target="">
+                                                    <i class="fas fa-images icon-fw icon-lg"></i>
+                                                    <span>ChatImage</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/teacher/" target="">
+                                                    <i class="fas fa-book-reader icon-fw icon-lg"></i>
+                                                    <span>ChatTeacher</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/code/" target="">
+                                                    <i class="fas fa-laptop-code icon-fw icon-lg"></i>
+                                                    <span>ChatCode</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/chef/" target="">
+                                                    <i class="fas fa-cookie-bite icon-fw icon-lg"></i>
+                                                    <span>ChatChef</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/email/" target="">
+                                                    <i class="iconfont icon-email icon-fw icon-lg"></i>
+                                                    <span>ChatEmail</span>
+                                                </a>
+                                            </li> 
+                                                                                    <li class="sidebar-item">
+                                                <a href="https://chatgpt.ai/translator/" target="">
+                                                    <i class="fas fa-language icon-fw icon-lg"></i>
+                                                    <span>ChatTranslator</span>
+                                                </a>
+                                            </li> 
+                                         
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top py-2 border-color">
+                    <div class="flex-bottom">
+                        <ul> 
+                            <li id="menu-item-18787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18787 sidebar-item"><a href="https://chatgpt.ai/prompt-perfect/">
+        <i class="fas fa-check-double icon-fw icon-lg"></i>
+                <span>Prompt Perfect</span></a></li>
+<li id="menu-item-13348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13348 sidebar-item"><a href="https://chatgpt.ai/prompt-base/">
+        <i class="fas fa-database icon-fw icon-lg"></i>
+                <span>Prompt Base</span></a></li>
+ 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content flex-fill">    <div class=" header-nav">
+        <div id="header" class="page-header sticky">
+            <div class="navbar navbar-expand-md">
+                <div class="container-fluid p-0 position-relative">
+                    <div class="position-absolute w-100 text-center">
+                        <a href="https://chatgpt.ai" class="navbar-brand d-md-none m-0" title="ChatGPT.AI">
+                            <img src="https://chatgpt.ai/wp-content/uploads/2023/08/ChatGate__2023-08-2921_58_10-e1693318035516.png" class="logo-light" alt="ChatGPT.AI" height="30">
+                            <img src="https://chatgpt.ai/wp-content/uploads/2023/08/ChatGate_white__2023-08-2921_57_40-e1693317905172.png" class="logo-dark d-none" alt="ChatGPT.AI" height="30">
+                        </a>
+                    </div>
+                    <div class="nav-item d-md-none mobile-menu py-2 position-relative"><a href="javascript:" id="sidebar-switch" data-toggle="modal" data-target="#sidebar"><i class="iconfont icon-classification icon-lg"></i></a></div>                    <div class="collapse navbar-collapse order-2 order-md-1">
+                        <div class="header-mini-btn">
+                            <label>
+                                <input id="mini-button" type="checkbox" checked="checked">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> 
+                                    <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55"></path>
+                                    <path class="line--2" d="M0 50h80"></path>
+                                    <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45"></path>
+                                </svg>
+                            </label>
+                        
+                        </div>
+                                                <ul class="navbar-nav navbar-top site-menu mr-4">
+                            <li id="menu-item-10506" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10506"><a href="https://chatgpt.ai/picks/">Navigation</a></li>
+<li id="menu-item-6859" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6859"><a href="#">Tutorials</a>
+<ul class="sub-menu">
+	<li id="menu-item-6862" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-6862"><a href="https://chatgpt.ai/post/best-practices-for-prompt-engineering/">Official Guide</a></li>
+	<li id="menu-item-6869" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-6869"><a href="https://chatgpt.ai/post/ai-for-beginners/">Beginner&#8217;s Guide</a></li>
+</ul>
+</li>
+<li id="menu-item-19018" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19018"><a href="https://chatgpt.ai/about/">About</a></li>
+ 
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-menu text-xs order-1 order-md-2 position-relative">
+                                                                            <li class="nav-login ml-3 ml-md-4">
+                                <a href="https://chatgpt.ai/wp-login.php?redirect_to=https%3A%2F%2Fchatgpt.ai%2Flogin" title="登录"><i class="iconfont icon-user icon-lg"></i></a>
+                            </li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder"></div>
+            </div>
+      <div id="content" class="container my-4 my-md-5">
+        <div class="content-wrap">
+            <div class="content-layout">
+            <div class="panel card">
+            <div class="card-body">
+                <div class="panel-header mb-4">
+                    <h1 class="h3">Login                                            </h1>
+                </div>
+                <div class="panel-body mt-2">
+                                        <div class="arm-form-container"><div class="arm_form_message_container arm_editor_form_fileds_container arm_editor_form_fileds_wrapper arm_form_102"></div><div class="armclear"></div><form method="post" class="arm_form  arm_form_102 arm_form_layout_writer arm-default-form arm-material-style  armf_alignment_left armf_layout_block armf_button_position_center arm_form_ltr  arm_form_style_blue arm_materialize_form arm_cl_102_F1Z7SNxpIZ" enctype="multipart/form-data" novalidate  name="arm_form" id="arm_form102_F1Z7SNxpIZ" data-random-id="102_F1Z7SNxpIZ"  data-submission-key="788vtc9q" ><input type='text' name='arm_filter_input' arm_register='true' data-random-key='102_F1Z7SNxpIZ' value='' style='opacity:0 !important;display:none !important;visibility:hidden !important;' /><style type="text/css" id="arm_form_style_102">
+						.arm_form_102 .arm_editor_form_fileds_wrapper{
+						   padding-top: 30px !important;
+						   padding-bottom: 30px !important;
+						   padding-right: 30px !important;
+						   padding-left: 30px !important;
+						}
+                                                
+
+                                                .arm_popup_member_form_102 .arm_form_message_container{
+                                                    max-width: 100%;
+                                                    width: 550px; 
+                                                    margin: 0 auto;
+                                                }
+                                                    
+						.arm_popup_member_form_102 .arm-df__heading .arm-df__heading-text,
+                        .arm_form_102 .arm_update_card_form_heading_container .arm-df__heading-text,
+	                    .arm_form_102 .arm-df__heading:not(.popup_header_text) .arm-df__heading-text{
+							color: #1A2538;
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 28px;
+							font-weight: bold;font-style: normal;text-decoration: none;
+						}
+						.arm_form_102 .arm_registration_link,
+						.arm_form_102 .arm_forgotpassword_link{
+							color: #1A2538;
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 16px;
+							font-weight: normal;font-style: normal;text-decoration: none;
+						}
+	                    .arm_form_102 .arm_pass_strength_meter{
+	                        color: #1A2538;
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+	                    }
+                        .arm_form_102 .arm_reg_login_links a{
+                            color: #005AEE !important;
+                        }
+                        .arm_form_102 .arm_registration_link a,
+                        .arm_form_102 .arm_forgotpassword_link a{
+                            color: #005AEE !important;
+                        }
+	                    .arm_form_102 .arm-df__form-group .arm_registration_link,
+	                    .arm_form_102 .arm-df__form-group.arm_registration_link,
+	                    .arm_form_102 .arm_registration_link{
+	                        margin: 0px 0px 0px 0px !important;
+	                    }
+	                    .arm_form_102 .arm-df__form-group .arm_forgotpassword_link,
+	                    .arm_form_102 .arm-df__form-group.arm_forgotpassword_link,
+	                    .arm_form_102 .arm_forgotpassword_link{
+	                        margin: -132px 0px 0px 315px !important;                     
+	                    }.arm_form_102 .arm-df__form-group .arm_forgotpassword_link,
+	                    .arm_form_102 .arm-df__form-group.arm_forgotpassword_link,
+	                    .arm_form_102 .arm_forgotpassword_link{
+	                        z-index:2;
+	                    }
+	                    .arm_form_102 .arm_close_account_message,
+						.arm_form_102 .arm_forgot_password_description {
+							color: #1A2538;
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 17px;
+						}
+						.arm_form_102 .arm-df__form-group{
+							margin-bottom: 15px !important;
+						}
+						.arm_form_102 .arm-df__form-field,
+                        .arm_form_102.arm_membership_setup_form .arm_module_gateways_container .arm_module_gateway_fields .arm-df__form-field{
+							max-width: 100%;
+							width: 62%;
+							width: 100%;
+						}
+	                    .arm_form_message_container.arm_editor_form_fileds_container.arm_editor_form_fileds_wrapper,
+                            .arm_form_message_container1.arm_editor_form_fileds_container.arm_editor_form_fileds_wrapper {
+	                        border: none !important;
+	                    } 
+						.arm_module_forms_container .arm_form_102,
+						.arm-form-container .arm_form_102, 
+                        .arm_update_card_form_container .arm_form_102, .arm_editor_form_fileds_container,.arm_editor_form_fileds_container .arm_form_102,
+                        .arm-form-container .arm_form_102.arm-default-form:not(.arm_admin_member_form){
+							max-width: 100%;
+							width: 550px;
+							margin: 0 auto;
+						}
+                        .popup_wrapper.arm_popup_wrapper.arm_popup_member_form.arm_popup_member_form_102{
+                            background:  #FFFFFF!important;
+							background-repeat: no-repeat;
+							background-position: top left;
+						}
+						.arm_module_forms_container .arm_form_102,
+						.arm-form-container .arm_form_102.arm-default-form:not(.arm_admin_member_form),
+                        .arm_update_card_form_container .arm_form_102, .arm_admin_member_form .arm_editor_form_fileds_wrapper {
+							background:  #FFFFFF;
+							background-repeat: no-repeat;
+							background-position: top left;
+							border: 0px solid #DCE5F2;
+							border-radius: 8px;
+							-webkit-border-radius: 8px;
+							-moz-border-radius: 8px;
+							-o-border-radius: 8px;
+                            padding-top: 30px !important;
+                            padding-bottom: 30px !important;
+                            padding-right: 30px !important;
+                            padding-left: 30px !important;
+							float: center;
+						}
+                        .popup_wrapper.arm_popup_wrapper.arm_popup_member_form.arm_popup_member_form_102 .arm_module_forms_container .arm_form_102,
+						.popup_wrapper.arm_popup_wrapper.arm_popup_member_form.arm_popup_member_form_102 .arm-form-container .arm_form_102{
+                                background: none !important;
+						}
+	                    .arm_form_msg.arm-form-container, .arm_form_msg .arm_form_message_container,
+                            .arm_form_msg.arm-form-container, .arm_form_msg .arm_form_message_container1{
+	                        float: center;
+	                        width: 550px;    
+	                    }
+						.arm_form_102 .arm_form_label_wrapper{
+							max-width: 100%;
+							width: 30%;
+							width: 250px;
+						}
+						.arm_form_102 .arm_form_field_label_text,
+						.arm_form_102 .arm_member_form_field_label .arm_form_field_label_text,
+                        .arm_form_102 .arm_df__helper-description .arm_df__helper-description-text,
+						.arm_form_102 .arm_form_label_wrapper .arm-df__label-asterisk,
+						.arm_form_102 .arm-df__form-field-wrap label.arm_form_field_label_text {
+							margin: 0px !important;
+						}
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm_form_field_label_text,
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm_member_form_field_label .arm_form_field_label_text,
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm_df__helper-description .arm_df__helper-description-text,
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm_form_label_wrapper .arm-df__label-asterisk,
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm-df__form-field-wrap label,
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm-df__form-field .arm-df__radio .arm-df__fc-radio--label,
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm-df__form-field .arm-df__checkbox .arm-df__fc-checkbox--label {
+                            color: #1A2538;
+                            font-family: Helvetica, sans-serif, 'Trebuchet MS';
+                            font-size: 16px;
+                            cursor: pointer;
+                            font-weight: normal;font-style: normal;text-decoration: none;
+                            line-height: 21px;
+                        }
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm-df__form-field-wrap .arm-notched-outline__notch label {
+                            line-height: 32px;
+                        }
+                        .arm_form_102.arm-default-form .arm-df__checkbox input[type="checkbox"]:checked + label:before {
+                            border-right: 2px solid #FFFFFF;
+                            border-bottom: 2px solid #FFFFFF;
+                        }
+                        .arm_form_102.arm-default-form .arm-df__dropdown-control .arm__dc--items-wrap .arm__dc--items {
+                            background: #FFFFFF;
+                        }
+                        .arm_form_102 .arm_reg_links_wrapper .arm_login_link, .arm_reg_login_links {
+                            color: #1A2538;
+                            font-family: Helvetica, sans-serif, 'Trebuchet MS';
+                            font-size: 16px;
+                            font-weight: normal;font-style: normal;text-decoration: none;
+                        }
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control .arm__dc--head .arm__dc--head__title,
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control dt.arm__dc--head .arm-df__dc--head__autocomplete {
+                            font-family: Helvetica, sans-serif, 'Trebuchet MS';
+                            color:#2F3F5C;
+                            font-size: 14px;
+                            font-weight: normal;
+                        }
+                        .arm_form_102.arm-material-style.arm_materialize_form .arm_df__helper-description .arm_df__helper-description-text
+                        { 
+                            font-size: 16px; 
+                            line-height: 16px; 
+                        }
+	                    .arm_form_102 .arm-df__dropdown-control .arm__dc--items-wrap .arm__dc--items .arm__dc--item {
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 16px;
+                            color:#2F3F5C;
+							font-weight: normal;font-style: normal;text-decoration: none;
+						}
+                        .arm_form_102 .arm-df__dropdown-control .arm__dc--items-wrap .arm__dc--items .arm__dc--item:not([disabled]):focus, 
+                        .arm_form_102 .arm-df__dropdown-control .arm__dc--items-wrap .arm__dc--items .arm__dc--item:not([disabled]):hover,
+                        .arm_form_102 .arm-df__dropdown-control .arm__dc--items-wrap .arm__dc--items .arm__dc--item:not([disabled]).hovered
+                        {
+                            background-color : #637799 ;
+                            color : #ffffff;
+                        }
+						.arm_form_102 .arm-df__form-field-wrap.arm-df__form-field-wrap_section{
+							color: #1A2538;
+	                        font-family: Helvetica, sans-serif, 'Trebuchet MS';
+	                    }
+						.arm_form_102 .arm-df__radio, .arm_form_102 .arm-df__checkbox{
+							color:#1A2538;
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 16px;
+							cursor: pointer;
+							font-weight: normal;font-style: normal;text-decoration: none;
+						}
+						.arm_form_102 .arm-df__dropdown-control .arm__dc--items-wrap .arm__dc--items .arm__dc--item[selected] {
+							font-weight: bold;
+							color:#2F3F5C;
+						}
+	                    .arm_form_102 .arm-df__form-field-wrap input:not([type='checkbox'],[type='radio'],.arm-df__dc--head__autocomplete){
+	                        height: 33px;
+	                    }
+                        /*
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__form-control[type='checkbox']{
+                            width: 33px !important;
+                        }
+                        */
+
+	                    .arm_form_102 .arm_apply_coupon_container .arm_coupon_submit_wrapper .arm_apply_coupon_btn{
+	                        min-height: 35px;
+	                        margin: 0;
+	                    }
+                        .arm_form_102 .arm-df__form-control::placeholder, 
+                        .arm_form_102 input.arm-df__form-control:not(.arm-df__dc--head__autocomplete)::placeholder, 
+                        .arm_form_102 textarea.arm-df__form-control::placeholder{
+                            color:#2F3F5C;
+                        }
+						.arm_form_102 .arm-df__form-field-wrap input:not([type='checkbox'],[type='radio'],.arm-df__dc--head__autocomplete),
+						.arm_form_102 .arm-df__form-field-wrap textarea.arm-df__form-control,
+						.arm_form_102 .arm-df__form-field-wrap select,
+						.arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control dt.arm__dc--head{
+	                        
+							border: 1px solid #D3DEF0;
+							border-color: #D3DEF0;
+							border-radius: 0px !important;
+							-webkit-border-radius: 0px !important;
+							-moz-border-radius: 0px !important;
+							-o-border-radius: 0px !important;
+							color:#2F3F5C;
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 14px;
+							font-weight: normal;font-style: normal;text-decoration: none;
+							height: 33px;
+                            line-height: 17px;
+                            background-image:none;
+                            margin-bottom:0px !important;
+						}
+                        .arm_form_102:not(.arm-material-style, .arm--material-outline-style) .arm-df__form-field-wrap input:not(.arm-df__dc--head__autocomplete) {
+                            border-color: #D3DEF0;
+                        }
+                            .arm_form_102.arm-material-style .arm-df__form-field-wrap input:not([type='checkbox'],[type='radio'],.arm-df__dc--head__autocomplete),
+                            .arm_form_102.arm-material-style .arm-df__form-field-wrap textarea.arm-df__form-control,
+                            .arm_form_102.arm-material-style .arm-df__form-field-wrap select,
+                            .arm_form_102.arm-material-style .arm-df__form-field-wrap .arm-df__dropdown-control dt.arm__dc--head{
+                                background-color: transparent !important;
+                            }
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control dt.arm__dc--head .arm-df__dc--head__autocomplete {
+                            line-height: 17px;
+                        }
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control dt.arm__dc--head i.armfa.armfa-caret-down{
+                            color: #bababa;
+                        }
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control .arm__dc--items-wrap .arm__dc--items { border: 1px solid #D3DEF0; }
+                        .arm_form_102.arm-rounded-style .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active .arm__dc--head{
+                        -webkit-border-radius: 25px 25px 0 0 !important;
+                        -moz-border-radius: 25px 25px 0 0 !important;
+                        -o-border-radius: 25px 25px 0 0 !important;
+                        border-radius: 25px 25px 0 0 !important;
+                        }
+                        
+						.arm_form_102 .armFileUploadWrapper .arm-ffw__file-upload-box{
+							border-color: #D3DEF0;
+						}
+						.arm_form_102 .armFileUploadWrapper .arm-ffw__file-upload-box.arm_dragover{
+							border-color: #637799;
+						}
+						.arm_form_102 .arm-df__checkbox{
+							color: rgba(211, 222, 240, 0.87);
+						}
+						.arm_form_102.arm_materialize_form .arm-df__checkbox input[type='checkbox'] + label:after,
+                        .arm_form_102.arm_materialize_form .arm-df__radio input[type='radio'] + label:before
+                        {
+							border-color: #D3DEF0;
+						}
+						.arm_form_102 input[type=checkbox].arm-df__form-control--is-checkbox:checked,
+                        .arm_form_102 input[type=radio].arm-df__form-control--is-radio:checked,
+                        .arm_form_102.arm_materialize_form .arm-df__checkbox input[type='checkbox']:checked + label:after,
+                        .arm_form_102.arm_materialize_form .arm-df__checkbox input[type='checkbox']:checked:focus + label:after,
+                        .arm_form_102.arm_materialize_form .arm-df__radio input[type='radio']:checked + label:after,
+                        .arm_form_102.arm_materialize_form .arm-df__radio input[type='radio']:checked:focus + label:after{
+							background-color: #637799;
+                            border-color: #637799;
+						}
+                        .arm_form_102.arm_materialize_form .arm-df__radio input[type='radio']:checked + label:before {
+                            border-color: #637799;
+                        }
+						.arm_form_102 .arm-df__checkbox:before,
+                        .arm_form_102 .arm-df__radio:before{
+							background-color: rgba(99, 119, 153, 0.26) !important;
+						}
+                            .arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .select-wrapper input.select-dropdown,
+                            .arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .file-field input.file-path{
+                                border-color: #D3DEF0;
+                                border-width: 0 0 1px 0 !important;
+                            }
+                            .arm_form_102.arm_form_layout_writer .arm-df__form-control.select-wrapper{border:0 !important;}
+                            
+						.arm_form_102 .arm-df__form-field-wrap input.arm-df__form-control:focus,
+						.arm_form_102 .arm-df__form-field-wrap textarea.arm-df__form-control:focus,
+						.arm_form_102 .arm-df__form-field-wrap select:focus,
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active dt.arm__dc--head,
+                        .arm_form_102 .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active .arm__dc--items-wrap .arm__dc--items{
+                            color: #2F3F5C;
+							border: 1px solid #637799;
+							border-color: #637799;
+                            background-image:none;
+						}
+						.arm_form_102 .arm_uploaded_file_info .armbar{
+							background-color: #637799;
+						}
+						.arm_form_102 .arm-df__form-control.arm-df__fc--validation__wrap,
+						.arm_form_102 .arm-df__form-control.arm_invalid, 
+                        .arm_form_102 .arm-df__form-group_select.error .arm__dc--head {
+							border: 1px solid #FF3B3B;
+							border-color: #FF3B3B !important;
+						}
+                            .arm_form_102.arm_materialize_form:not(.arm--material-outline-style) .arm-df__form-field .arm-df__form-control.arm_invalid,
+                            .arm_form_102.arm_materialize_form:not(.arm--material-outline-style) .arm-df__form-group_select.error .arm__dc--head{
+                                border-bottom: 1px solid #FF3B3B !important;
+                            }
+						.arm_form_102 .arm_form_message_container .arm_success_msg,
+						.arm_form_102 .arm_form_message_container .arm-df__fc--validation__wrap,
+                                                .arm_form_102 .arm_form_message_container1 .arm_success_msg,
+                                                .arm_form_102 .arm_form_message_container1 .arm_success_msg1,
+						.arm_form_102 .arm_form_message_container1 .arm-df__fc--validation__wrap,
+                                                    .arm_form_102 .arm_form_message_container .arm_success_msg a{
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+	                        text-decoration: none !important;
+						}
+                        .arm_form_102 .arm_coupon_field_wrapper .success.notify_msg{
+                            font-family: Helvetica, sans-serif, 'Trebuchet MS';
+                            text-decoration: none !important;
+                        }
+	                    .arm_form_102.arm_form_layout_writer .arm-df__form-field-wrap textarea.arm-df__form-control{
+	                        -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	                        -moz-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+							transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+							background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 99.1%, #D3DEF0 4%);
+							background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 99.1%, #D3DEF0 4%);
+							background-repeat: no-repeat;
+							background-position: 0 0;
+							background-size: 0 100%;
+							max-height:150px;
+	                                        }
+						.arm_form_102.arm_materialize_form .arm-df__form-field-wrap input,
+						.arm_form_102.arm_materialize_form .arm-df__form-field-wrap select{
+							-webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+							transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+							background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #D3DEF0 4%);
+							background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #D3DEF0 4%);
+							background-repeat: no-repeat;
+							background-position: 0 0;
+							background-size: 0 100%;
+						}
+                            .arm_form_102.arm_form_layout_writer .arm-df__form-field-wrap input.arm-df__form-control:focus,
+                            .arm_form_102.arm_form_layout_writer .arm-df__form-field-wrap select:focus,
+                            .arm_form_102.arm_form_layout_writer .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active dt.arm__dc--head{
+                                background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #637799 4%);
+                                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #637799 4%);
+                                background-repeat: no-repeat;
+                                background-position: 0 0;
+                                background-size: 100% 100%;
+                            }
+	                    .arm_form_102 .arm_editor_form_fileds_container .arm-df__form-field-wrap input.arm-df__form-control:focus,
+						.arm_form_102 .arm_editor_form_fileds_container .arm-df__form-field-wrap textarea:focus,
+						.arm_form_102 .arm_editor_form_fileds_container .arm-df__form-field-wrap select:focus,
+                        .arm_form_102 .arm_editor_form_fileds_container .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active dt.arm__dc--head,
+                        .arm_form_102 .arm_editor_form_fileds_container .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active .arm__dc--items-wrap .arm__dc--items{
+							border: 1px solid #637799;
+							border-color: #637799 !important;
+						}
+	                    .arm_form_102.arm_form_layout_writer .arm_editor_form_fileds_container .arm-df__form-control.arm-df__fc--validation__wrap:focus,
+						.arm_form_102.arm_form_layout_writer .arm_editor_form_fileds_container .arm-df__form-control.arm_invalid:focus,
+                        .arm_form_102.arm_form_layout_writer.arm_materialize_form .arm_editor_form_fileds_container .arm-df__form-control.arm_invalid:focus,
+	                    .arm_form_102.arm_form_layout_writer .arm_editor_form_fileds_container .arm-df__form-field-wrap input.arm-df__form-control:focus,
+						.arm_form_102.arm_form_layout_writer .arm_editor_form_fileds_container .arm-df__form-field-wrap select:focus,
+                        .arm_form_102.arm_form_layout_writer .arm_editor_form_fileds_container .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active dt.arm__dc--head,
+                        .arm_form_102.arm_form_layout_writer .arm_editor_form_fileds_container .arm-df__form-field-wrap .arm-df__dropdown-control.arm-is-active .arm__dc--items-wrap .arm__dc--items{
+	                        background-repeat: no-repeat;
+							background-position: 0 0;
+							background-size: 100% 100%;
+	                        border-color: #637799 !important;
+	                    }
+	                    .arm_form_102.arm_form_layout_writer .arm-df__form-field-wrap textarea:focus{
+	                        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 99.1%, #637799 4%);
+							background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 99.1%, #637799 4%);
+							background-repeat: no-repeat;
+							background-position: 0 0;
+							background-size: 100% 100%;
+	                    }
+	                    .arm_form_102.arm_form_layout_writer textarea.arm-df__form-control.arm-df__fc--validation__wrap:focus,
+	                    .arm_form_102.arm_form_layout_writer textarea.arm-df__form-control.arm_invalid:focus,
+                        .arm_form_102.arm_form_layout_writer.arm_materialize_form textarea.arm-df__form-control.arm_invalid:focus{
+	                        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 99.1%, #FF3B3B 4%);
+	                        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 99.1%, #FF3B3B 4%);
+	                        background-repeat: no-repeat;
+	                        background-position: 0 0;
+	                        background-size: 100% 100%;
+	                    }
+						.arm_form_102.arm_form_layout_writer .arm-df__form-control.arm-df__fc--validation__wrap:focus,
+						.arm_form_102.arm_form_layout_writer .arm-df__form-control.arm_invalid:focus,
+                        .arm_form_102.arm_form_layout_writer.arm_materialize_form .arm-df__form-control.arm_invalid:focus{
+							background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #FF3B3B 4%);
+							background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #FF3B3B 4%);
+							background-repeat: no-repeat;
+							background-position: 0 0;
+							background-size: 100% 100%;
+						}
+
+                        .arm_form_102 .armFileMessages.arm-df__fc--validation
+                        {
+                            display:block ;
+                        }
+
+						.arm_form_102.arm_form_layout_iconic:not(.arm_standard_validation_type) .arm-df__fc--validation .arm-df__fc--validation__wrap,
+						.arm_form_102.arm_form_layout_rounded:not(.arm_standard_validation_type) .arm-df__fc--validation .arm-df__fc--validation__wrap,
+						.arm_form_102:not(.arm_standard_validation_type) .arm-df__fc--validation .arm-df__fc--validation__wrap,
+                        .arm_form_102.arm_form_layout_iconic:not(.arm_standard_validation_type) .armFileMessages .arm-df__fc--validation__wrap,
+                        .arm_form_102.arm_form_layout_rounded:not(.arm_standard_validation_type) .armFileMessages .arm-df__fc--validation__wrap,
+                        .arm_form_102:not(.arm_standard_validation_type) .armFileMessages .arm-df__fc--validation__wrap{
+							color: #FF3B3B;
+							background: #ffffff;
+	                        font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 14px;
+	                        font-size: 16px;
+							padding-left: 5px;
+							padding-right: 5px;
+	                        text-decoration: none !important;
+                            line-height:16px;
+						}
+                        .arm_form_102.arm_standard_validation_type .arm-df__fc--validation .arm-df__fc--validation__wrap, .arm_form_102.arm_standard_validation_type .armFileMessages .arm-df__fc--validation__wrap{
+                            color: #FF3B3B;
+                            font-family: Helvetica, sans-serif, 'Trebuchet MS';
+                            font-size: 16px;
+                            line-height:16px;
+                        }
+						.arm_form_102 .arm_msg_pos_right .arm-df__fc--validation .arm_error_box_arrow:after, .arm_form_102 .arm_msg_pos_right .armFileMessages .arm_error_box_arrow:after{border-right-color: #ffffff !important;} 
+						.arm_form_102 .arm_msg_pos_left .arm-df__fc--validation .arm_error_box_arrow:after, .arm_form_102 .arm_msg_pos_left .armFileMessages .arm_error_box_arrow:after{border-left-color: #ffffff !important;}
+						.arm_form_102 .arm_msg_pos_top .arm-df__fc--validation .arm_error_box_arrow:after, .arm_form_102 .arm_msg_pos_top .armFileMessages .arm_error_box_arrow:after{border-top-color: #ffffff !important;}
+						.arm_form_102 .arm_msg_pos_bottom .arm-df__fc--validation .arm_error_box_arrow:after, .arm_form_102 .arm_msg_pos_bottom .armFileMessages .arm_error_box_arrow:after{border-bottom-color: #ffffff !important;}
+						.arm_form_102 .arm_writer_error_msg_box{
+							color: #FF3B3B;
+							font-size: 14px;
+							font-size: 14px;
+						}
+						.arm_form_102 .arm-df__form-field-wrap_submit .arm-df__form-control-submit-btn,
+						.arm_form_102 .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn{
+							border-radius: 50px;
+							-webkit-border-radius: 50px;
+							-moz-border-radius: 50px;
+							-o-border-radius: 50px;
+							width: auto;
+							max-width: 100%;
+							width: 350px;
+							min-height: 35px;
+							min-height: 45px;
+                            line-height: 45px;
+							padding: 0 10px;
+							font-family: Helvetica, sans-serif, 'Trebuchet MS';
+							font-size: 18px;
+							margin: 10px 0px 0px 0px;
+							font-weight: bold;font-style: normal;text-decoration: none;
+							text-transform: none;
+	                        background-color: transparent;border: 2px solid #005AEE;color: #005AEE;
+						}
+	                    .arm_form_102 .arm-df__form-field-wrap_submit .arm-df__form-control-submit-btn.arm-df__form-group_button.arm_editable_input_button,
+                        .arm_form_102 .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn.arm-df__form-group_button.arm_editable_input_button{
+	                        height: 45px;
+	                    }
+	                    .arm_form_102 .arm_setup_submit_btn_wrapper .arm-df__form-field-wrap_submit .arm-df__form-control-submit-btn,
+                        .arm_form_102 .arm_setup_submit_btn_wrapper .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn{
+	                        background-color: transparent;border: 2px solid #005AEE;color: #005AEE;
+	                    }
+                        .arm_form_102 .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn #arm_form_loader{
+                            fill:#005AEE;
+                            }
+						/*.arm_form_102 button:hover,*/
+						.arm_form_102 .arm-df__form-field-wrap_submit .arm-df__form-control-submit-btn:hover,
+						.arm_form_102 .arm-df__form-field-wrap_submit .arm-df__form-control-submit-btn:not([disabled]):hover,
+						.arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .arm-df__form-field-wrap_submit .arm-df__form-control-submit-btn.btn:hover,
+						.arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .arm-df__form-field-wrap_submit .arm-df__form-control-submit-btn.btn-large:hover,
+						.arm_form_102 .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn:hover,
+						.arm_form_102 .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn:not([disabled]):hover,
+						.arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn.btn:hover,
+						.arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn.btn-large:hover{
+							background-color: #0D54C9 !important;border: 2px solid #0D54C9 !important;color: #ffffff !important;
+						}
+                        .arm_form_102 .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn:hover #arm_form_loader,
+						.arm_form_102 .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn:not([disabled]):hover #arm_form_loader,
+						.arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn.btn:hover #arm_form_loader,
+						.arm_form_102.arm_form_layout_writer .arm-df__fields-wrapper .arm-df__form-field-wrap_submit button.arm-df__form-control-submit-btn.btn-large:hover #arm_form_loader{
+                            fill:#ffffff !important;
+                        }
+	                    .arm_form_102 .arm-df__fields-wrapper .armFileUploadWrapper .armFileBtn,
+						.arm_form_102 .arm-df__fields-wrapper .armFileUploadContainer{
+							border: 1px solid #005AEE;
+							background-color: #005AEE;
+							color: #FFFFFF;
+						}
+						.arm_form_102 .arm-df__fields-wrapper .armFileUploadWrapper .armFileBtn:hover,
+						.arm_form_102 .arm-df__fields-wrapper .armFileUploadContainer:hover{
+	                        background-color: #0D54C9 !important;
+							border-color: #0D54C9 !important;
+							color: #ffffff !important;
+	                    }
+						.arm_form_102 .arm-df__fc-icon i{color: #bababa;}
+						.arm_date_field_102 .bootstrap-datetimepicker-widget table td.today:before{border: 3px solid #637799;}
+						.arm_date_field_102 .bootstrap-datetimepicker-widget table td.active,
+						.arm_date_field_102 .bootstrap-datetimepicker-widget table td.active:hover{
+							color: #637799 !important;
+							background: url(https://chatgpt.ai/wp-content/plugins/armember/images/bootstrap_datepicker_blue.png) no-repeat !important;
+						}
+						.arm_date_field_102 .bootstrap-datetimepicker-widget table td span:hover{border-color: #637799;}
+						.arm_date_field_102 .bootstrap-datetimepicker-widget table td span.active{background-color: #637799;}
+						.arm_date_field_102 .arm_cal_header{background-color: #637799 !important;}
+						.arm_date_field_102 .arm_cal_month{
+							background-color: #637799 !important;
+							border-bottom: 1px solid #637799;
+						}
+						.arm_date_field_102 .bootstrap-datetimepicker-widget table td.day:hover {
+							background: url(https://chatgpt.ai/wp-content/plugins/armember/images/bootstrap_datepicker_hover.png) no-repeat;
+						}
+						.arm_date_field_102 .arm_cal_hour:hover, .arm_date_field_102 .arm_cal_minute:hover{border-color: #637799;}
+						.arm_date_field_102 .timepicker-picker .btn-primary{
+							background-color: #637799;
+							border-color: #637799;
+						}
+						.arm_date_field_102 .armglyphicon-time:before,
+						.arm_date_field_102 .armglyphicon-calendar:before,
+						.arm_date_field_102 .armglyphicon-chevron-up:before,
+						.arm_date_field_102 .armglyphicon-chevron-down:before{color: #637799;}
+						.arm_form_102 stop.arm_social_connect_svg { stop-color:#005AEE; } </style><div class="arm-df-wrapper arm_msg_pos_bottom"><div class="arm-df__fields-wrapper arm-df__fields-wrapper_102 arm_field_position_center arm_front_side_form"  data-form_id="102"><div class="arm-control-group arm-df__form-group arm-df__form-group_text" id="arm-df__form-group_574" data-field_id="574" style=""><div class="arm_label_input_separator"></div><div class="arm-df__form-field"><div class="arm-df__form-field-wrap_text arm-df__form-field-wrap arm-controls " id="arm-df__form-field-wrap_574"><input name="user_login" type="text" id="arm-df__form-control_574_102_F1Z7SNxpIZ" value="" class="arm-df__form-control arm-df__form-control_574 arm_material_input arm_cl_user_login_102_F1Z7SNxpIZ"    required data-validation-required-message="The username cannot be empty."    ><label class="arm-df__label-text " for="arm-df__form-control_574_102_F1Z7SNxpIZ"> * Username</label></div></div></div><div class="arm-control-group arm-df__form-group arm-df__form-group_password" id="arm-df__form-group_575" data-field_id="575" style=""><div class="arm_label_input_separator"></div><div class="arm-df__form-field"><div class="arm-df__form-field-wrap_password arm-df__form-field-wrap arm-controls " id="arm-df__form-field-wrap_575"><input name="user_pass" type="password" id="arm-df__form-control_575_102_F1Z7SNxpIZ" autocomplete="off" value="" class=" arm-df__form-control arm-df__form-control_575 arm_material_input arm_cl_user_pass_102_F1Z7SNxpIZ --arm-has-prefix-sufix-icon --arm-has-suffix-icon"    required data-validation-required-message="The password cannot be empty."    minlength="6" data-validation-minlength-message="Please enter at least 6 characters." ><label class="arm-df__label-text " for="arm-df__form-control_575_102_F1Z7SNxpIZ"> * Password</label><span class="arm-df__fc-icon --arm-suffix-icon  arm_visible_password_material " id="" style=""><i class="armfa armfa-eye"></i></span></div></div></div><div class="arm-control-group arm-df__form-group arm-df__form-group_rememberme" id="arm-df__form-group_576" data-field_id="576" style=""><div class="arm_label_input_separator"></div><div class="arm-df__form-field"><div class="arm-df__form-field-wrap_rememberme arm-df__form-field-wrap arm-controls " id="arm-df__form-field-wrap_576"><div class="arm-df__checkbox arm-d-flex arm-align-items-center"><input aria-label="forever"  name="rememberme" value="forever" class="arm-df__form-control--is-checkbox arm-df__form-control_576 arm_material_input arm_cl_rememberme_102_F1Z7SNxpIZ"    type="checkbox" id="arm-df__form-control_576_102_F1Z7SNxpIZ"><label class="arm-df__fc-checkbox--label" for="arm-df__form-control_576_102_F1Z7SNxpIZ">Remember me</label></div></div></div></div><div class="arm-df__form-group arm-df__form-group_submit" id="arm-df__form-group_577" data-field_id="577"><div class="arm_label_input_separator"></div><div class="arm-df__form-field"><div class="arm-df__form-field-wrap_submit arm-df__form-field-wrap arm-controls " id="arm-df__form-field-wrap_577"><button class="arm-df__form-control-submit-btn arm-df__form-group_button  arm-waves-effect arm-waves-lightarm-df__form-control_577 arm_material_input arm_cl_submit_ arm-df__form-control_577"  type="submit" name="armFormSubmitBtn"><span class="arm_spinner"><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="arm_form_loader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 26.349 26.35" style="enable-background:new 0 0 26.349 26.35;" xml:space="preserve" ><g><g><circle cx="13.792" cy="3.082" r="3.082" /><circle cx="13.792" cy="24.501" r="1.849"/><circle cx="6.219" cy="6.218" r="2.774"/><circle cx="21.365" cy="21.363" r="1.541"/><circle cx="3.082" cy="13.792" r="2.465"/><circle cx="24.501" cy="13.791" r="1.232"/><path d="M4.694,19.84c-0.843,0.843-0.843,2.207,0,3.05c0.842,0.843,2.208,0.843,3.05,0c0.843-0.843,0.843-2.207,0-3.05 C6.902,18.996,5.537,18.988,4.694,19.84z"/><circle cx="21.364" cy="6.218" r="0.924"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></span>Login</button></div></div></div><div class="armclear"></div></div><input type="hidden" name="arm_action" value="please-login"/><input type="hidden" name="redirect_to" value="https://chatgpt.ai"/><input type="hidden" name="isAdmin" value="0"/><input type="hidden" name="referral_url" value="https://chatgpt.ai"/><div class="armclear"></div><input type="hidden" name="" class="kpress" value="" /><input type="hidden" name="" class="stime" value="1693422843" /><input type="hidden" data-id="nonce_start_time" class="nonce_start_time" value="form_filter_st" /><input type="hidden" data-id="nonce_keyboard_press" class="nonce_keyboard_press" value="form_filter_kp" /><input type="hidden" name="arm_nonce_check" value="620f6b77e7" /><div class="arm-df__form-group arm-df__form-group_forgot_link arm_forgot_password_above_link arm_forgotpassword_link"><a href="https://chatgpt.ai/reset-password/" class="" >Forgot password?</a></div><div class="arm_login_links_wrapper arm_login_options arm_socialicons_bottom"><span class="arm_registration_link arm_reg_login_links"><center>Don't have an account? <a href="https://chatgpt.ai/membership-signup/" class="" >Signup</a></center></span><div class="armclear"></div></div><div class="armclear"></div></div></form><div class="armclear">&nbsp;</div></div>  
+            <!--Plugin Name: ARMember    
+                Plugin Version: 5.9.3 
+                Developed By: Repute Infosystems
+                Developer URL: http://www.reputeinfosystems.com/
+            -->
+                                    </div>
+            </div>
+            </div>
+                        </div>
+        </div>
+            </div>
+ 
+<div class="main-footer footer-stick p-4 footer-type-def">
+
+    <div class="footer-inner ">
+        <div class="footer-text ">
+                        <div class="footer-copyright text-xs">
+            Your gateway to the world of AI. Contact us: <a href="mailto:hi@chatgate.ai">hi@chatgate.ai</a>&nbsp;&nbsp;            </div>
+        </div>
+    </div>
+</div>
+</div><!-- main-content end -->
+
+<footer>
+    <div id="footer-tools" class="d-flex flex-column">
+        <a href="javascript:" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top">
+            <i class="iconfont icon-to-up"></i>
+        </a>
+                                            </div>
+</footer>
+            <script>
+                var wpaicgUserLoggedIn = false;
+            </script>
+            <!--  -->
+<style>
+			.sd-social-icon .sd-content ul li a.sd-button>span {
+				margin-left: 0;
+			}
+		</style><script defer id="bilmur" data-provider="wordpress.com" data-service="atomic"  src="https://s0.wp.com/wp-content/js/bilmur.min.js?m=202335"></script>
+<!--
+The IP2Location Country Blocker is using IP2Location LITE geolocation database. Please visit https://lite.ip2location.com for more information.
+-->
+			<script data-cfasync="false" type="text/javascript">
+			function arm_open_modal_box_in_nav_menu(menu_id, form_id) {
+                           
+				jQuery(".arm_nav_menu_link_" + form_id).find("." + form_id).trigger("click");
+				return false;
+			}
+			</script>
+			<link rel='stylesheet' id='all-css-ec4ad26a7a477e81e7da0499df340a74' href='https://chatgpt.ai/wp-content/plugins/armember/materialize/arm_materialize.css?m=1683562302' type='text/css' media='all' />
+<script id='wpaicg-init-js-extra'>
+var wpaicgParams = {"ajax_url":"https:\/\/chatgpt.ai\/wp-admin\/admin-ajax.php","search_nonce":"3860900c23","logged_in":"0","languages":{"source":"Sources","no_result":"No result found","wrong":"Something went wrong","prompt_strength":"Please enter a valid prompt strength value between 0 and 1.","num_inference_steps":"Please enter a valid number of inference steps value between 1 and 500.","guidance_scale":"Please enter a valid guidance scale value between 1 and 20.","error_image":"Please select least one image for generate","save_image_success":"Save images to media successfully","select_all":"Select All","unselect":"Unselect","select_save_error":"Please select least one image to save","alternative":"Alternative Text","title":"Title","edit_image":"Edit Image","caption":"Caption","description":"Description","save":"Save","removed_pdf":"Your pdf session is cleared"}};
+</script>
+<script type='text/javascript'  src='https://chatgpt.ai/_static/??-eJytkttuwjAMhl9oIWKgbVxMe5TJTUzrtomtxKXqnp4UUSYxIaHBlc+frN8exTiOilGt9ENNMdtadGOAlrypMWIC5WQkYaAh2J4q22Yrfr9q88v4IGLk1GF6lDQKkKuNa0BLiW/gWlQB1y32+4DRc7IwKAdQJbdUDAWo0Tgfraes9hL+e08Zqn7mX1bdcwomN5zUscfncSmSPo82C3qDVkAYi4ez4PYspU6CYyLFVBi/wSrQtXTaYMBsOWKEw+kZWOS+zopZsyaQe5pLgsDkctxuMpk8VnD9bX9meviZegZ/5n+Fz/Xb7nW3eV9vP44XrzY8'></script>
+<script id='appjs-js-extra'>
+var theme = {"ajaxurl":"https:\/\/chatgpt.ai\/wp-admin\/admin-ajax.php","uri":"https:\/\/chatgpt.ai\/wp-content\/themes\/onenav","addico":"https:\/\/chatgpt.ai\/wp-content\/themes\/onenav\/images\/add.png","order":"asc","formpostion":"top","defaultclass":"io-white-mode","isCustomize":"0","icourl":"https:\/\/api.iowen.cn\/favicon\/","icopng":".png","urlformat":"1","customizemax":"10","newWindow":"1","lazyload":"1","minNav":"0","loading":"","hotWords":"google","classColumns":" col-2a col-sm-2a col-md-2a col-lg-3a col-xl-5a col-xxl-6a ","apikey":"TWpBeU1USTJNemd4TWpZM0d6RS9oU2tnMWNYSjNiVTVyV2tSdk5rVnpNV1JFU3poSVNubzVPRWxvUWxKaA==","isHome":"","version":"3.2206"};
+var localize = {"liked":"You've already liked it!","like":"Thank you. Like it!","networkerror":"Network error --.","selectCategory":"Why not choose categories.","addSuccess":"Successfully added.","timeout":"Access timeout, please try again, or fill in manually.","lightMode":"Day mode","nightMode":"Dark mode","editBtn":"Edit","okBtn":"OK","urlExist":"The URL already exists --.","cancelBtn":"Cancel","successAlert":"success","infoAlert":"message","warningAlert":"warning","errorAlert":"error","extractionCode":"The network disk extraction code has been copied, click \"OK\" to enter the download page.","wait":"Please wait","loading":"Processing, please later...","userAgreement":"Please read and agree to the User Agreement first","reSend":"s resend"};
+</script>
+<script src='https://chatgpt.ai/wp-content/themes/onenav/js/app.min.js?ver=3.2206' id='appjs-js'></script>
+<script id="appjs-js-after" type="text/javascript">
+/* <![CDATA[ */ 
+    $(document).ready(function(){if($("#search-text")[0]){$("#search-text").focus();}});
+    /* ]]> */
+</script>
+<script id='wp-postviews-cache-js-extra'>
+var viewsCacheL10n = {"admin_ajax_url":"https:\/\/chatgpt.ai\/wp-admin\/admin-ajax.php","post_id":"1267"};
+</script>
+<script id='jetpack-lazy-images-js-extra'>
+var jetpackLazyImagesL10n = {"loading_warning":"Images are still loading. Please cancel your print and try again."};
+</script>
+<script type='text/javascript'  src='https://chatgpt.ai/_static/??-eJytjVEOwjAMQy9EqQZogg/EUVDIoi1jTaom6wSnZz9oHIAvW7bst+SAKk7i0QdKZFGFBGpkwZjVvDIttrmAgAPtR9st2zJPc89icSTPgM+v3itJpyXC7JrAnfHbhAner8AJ+hXYsfmKcypG6KwS9GFUKpX/Y36C9fyWrk17PjXt5XBsPyrWZaI='></script>
+<script defer src='https://stats.wp.com/e-202335.js' id='jetpack-stats-js'></script>
+<script id="jetpack-stats-js-after" type="text/javascript">
+_stq = window._stq || [];
+_stq.push([ "view", {v:'ext',blog:'215446280',post:'1267',tz:'8',srv:'chatgpt.ai',hp:'atomic',ac:'2',amp:'0',j:'1:12.5-beta'} ]);
+_stq.push([ "clickTrackerInit", "215446280", "1267" ]);
+</script>
+<script type='text/javascript'  src='https://chatgpt.ai/_static/??-eJyFjdEKwjAMRX/ILbrh8EUEP8JX6booGW1T09ShX2+HCPNpcAncwLlnihUF6/KACcaSR0Z5QSawLFh7CvWYNlOsLAfFoBBdvlNIYMSj71HAG0Uh4+iN8/O66Gtoz6xJxcSv+fyrl0IPRolX5X8Ls/3G5TyX/Mkfd92h3XdNu20+BFNapQ=='></script>
+ 
+<!-- 自定义代码 -->
+<!-- end 自定义代码 -->
+</body>
+</html>
+<!--
+	generated 233 seconds ago
+	generated in 0.643 seconds
+	served from batcache in 0.002 seconds
+	expires in 67 seconds
+-->

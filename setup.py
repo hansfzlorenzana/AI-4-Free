@@ -1,62 +1,30 @@
+from setuptools import setup, find_packages
 import codecs
 import os
-
-from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-with open("requirements.txt") as f:
+with open('requirements.txt') as f:
     required = f.read().splitlines()
 
-VERSION = '0.0.2.3'
-DESCRIPTION = (
-    "The official gpt4free repository | various collection of powerful language models"
-)
+VERSION = '0.1.8'
+DESCRIPTION = 'The AI 4 Free repository | Collection of LLMs | Forked from xtekky'
 
 # Setting up
 setup(
-    name="g4f",
+    name="ai4f",
     version=VERSION,
-    author="Tekky",
-    author_email="<support@g4f.ai>",
+    author="ZorenX",
+    author_email="<hansfzlorenzana@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
     install_requires=required,
-    url='https://github.com/xtekky/gpt4free',  # Link to your GitHub repository
-    project_urls={
-        'Source Code': 'https://github.com/xtekky/gpt4free',  # GitHub link
-        'Bug Tracker': 'https://github.com/xtekky/gpt4free/issues',  # Link to issue tracker
-    },
-    keywords=[
-        "python",
-        "chatbot",
-        "reverse-engineering",
-        "openai",
-        "chatbots",
-        "gpt",
-        "language-model",
-        "gpt-3",
-        "gpt3",
-        "openai-api",
-        "gpt-4",
-        "gpt4",
-        "chatgpt",
-        "chatgpt-api",
-        "openai-chatgpt",
-        "chatgpt-free",
-        "chatgpt-4",
-        "chatgpt4",
-        "chatgpt4-api",
-        "free",
-        "free-gpt",
-        "gpt4free",
-        "g4f",
-    ],
+    keywords=['python', 'chatbot', 'reverse-engineering', 'openai', 'chatbots', 'gpt', 'language-model', 'gpt-3', 'gpt3', 'openai-api', 'gpt-4', 'gpt4', 'chatgpt', 'chatgpt-api', 'openai-chatgpt', 'chatgpt-free', 'chatgpt-4', 'chatgpt4','chatgpt4-api', 'free', 'free-gpt', 'gpt4free', 'g4f','ai4f','llm'],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
@@ -65,4 +33,5 @@ setup(
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
     ],
+    data_files=[('', ['requirements.txt'])],
 )

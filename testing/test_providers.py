@@ -3,7 +3,7 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-from g4f import BaseProvider, models, provider
+from ai4f import BaseProvider, models, Provider
 
 
 def main():
@@ -25,7 +25,7 @@ def main():
 
 
 def get_providers() -> list[type[BaseProvider]]:
-    provider_names = dir(provider)
+    provider_names = dir(Provider)
     ignore_names = [
         "base_provider",
         "BaseProvider",
@@ -35,13 +35,13 @@ def get_providers() -> list[type[BaseProvider]]:
         for provider_name in provider_names
         if not provider_name.startswith("__") and provider_name not in ignore_names
     ]
-    return [getattr(provider, provider_name) for provider_name in provider_names]
+    return [getattr(Provider, provider_name) for provider_name in provider_names]
 
 
 def create_response(_provider: type[BaseProvider]) -> str:
     model = (
         models.gpt_35_turbo.name
-        if _provider is not provider.H2o
+        if _provider is not Provider.H2o
         else models.falcon_7b.name
     )
     response = _provider.create_completion(

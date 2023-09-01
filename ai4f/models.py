@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .Provider import Bard, BaseProvider, GetGpt, H2o, Liaobots, Vercel, Equing
+from .Provider import Bard, BaseProvider, GetGpt, H2o, Liaobots, Vercel, Equing, Poe
 
 
 @dataclass
@@ -182,6 +182,34 @@ llama7b_v2_chat = Model(
     best_provider=Vercel,
 )
 
+# Quora Poe
+models = {
+    'sage-assistant': 'capybara',
+    'claude-instant-v1-100k': 'a2_100k',
+    'claude-v2-100k': 'a2_2',
+    'claude-instant-v1': 'a2',
+    'gpt-3.5-turbo':'chinchilla',
+    'gpt-3.5-turbo-16k': 'agouti',
+    'gpt-4': 'beaver',
+    'gpt-4-32k': 'vizcacha',
+    'palm': 'acouchy',
+    'llama-2-7b': 'llama_2_7b_chat',
+    'llama-2-13b': 'llama_2_13b_chat',
+    'llama-2-70b': 'llama_2_70b_chat',
+}
+
+sage_assistant = Model(
+    name="sage-assistant",
+    base_provider="openai",
+    best_provider=Poe,
+)
+
+llama_2_7b = Model(
+    name="llama-2-7b",
+    base_provider="meta",
+    best_provider=Poe,
+)
+
 
 class ModelUtils:
     convert: dict[str, Model] = {
@@ -222,4 +250,6 @@ class ModelUtils:
         "text-davinci-003": text_davinci_003,
         "llama13b-v2-chat": llama13b_v2_chat,
         "llama7b-v2-chat": llama7b_v2_chat,
+        # Quora Poe
+        "llama-2-7b": llama_2_7b,
     }

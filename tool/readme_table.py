@@ -5,8 +5,8 @@ from urllib.parse import urlparse
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-from g4f import models, Provider
-from g4f.Provider.base_provider import BaseProvider
+from ai4f import models, Provider
+from ai4f.Provider.base_provider import BaseProvider
 
 
 def main():

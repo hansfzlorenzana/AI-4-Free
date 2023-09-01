@@ -26,6 +26,9 @@ from .Yqcloud import Yqcloud
 from .Equing import Equing
 from .FastGpt import FastGpt
 from .V50 import V50
+from .Poe import Poe
+from .Bing_Sydney import Bing_Sydney
+# from .Vercel2 import Vercel2
 
 __all__ = [
     "BaseProvider",
@@ -55,5 +58,8 @@ __all__ = [
     "Yqcloud",
     "Equing",
     "FastGpt",
-    "V50"
+    "V50",
+    "Poe",
+    "Bing_Sydney",
+    # "Vercel2"
 ]

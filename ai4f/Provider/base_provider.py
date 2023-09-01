@@ -10,6 +10,7 @@ class BaseProvider(ABC):
     supports_stream = False
     supports_gpt_35_turbo = False
     supports_gpt_4 = False
+    supports_proxy = False
 
     @staticmethod
     @abstractmethod
